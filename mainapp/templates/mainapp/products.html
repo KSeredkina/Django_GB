@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% extends 'mainapp/base.html' %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		{% block title %}
+			Каталог
+		{% endblock %}
+	</title>
+	{% load static %}
+</head>
+<body>
+	<div class="container">
+		{% block menu %}
+		<div class="hero-white">
+			{% include 'mainapp/includes/inc_main_menu.html' %}
+		</div>
+		{% endblock %}
+		{% block content %}
+		<div class="details">
+			<div class="links clearfix">
+				<ul class="links-menu">
+					<li><a href="#" class="active">все</a></li>
+					<li><a href="#">дом</a></li>
+					<li><a href="#">офис</a></li>
+					<li><a href="#">модерн</a></li>
+					<li><a href="#">классика</a></li>
+				</ul>
+			</div>
+
+			<div class="details-products">
+				<div class="details-slider">
+					<div class="slider-product">
+						<img src="{% static 'img/slider1.jpg' %}">
+					</div>
+					<div class="slider-control">
+						<div class="block">
+							<a href="#"><img src="{% static 'img/controll.jpg' %}" alt="">
+								<div class="text"></div>
+							</a>
+						</div>
+						<div class="block">
+							<a href="#"><img src="{% static 'img/controll1.jpg' %}" alt="">
+								<div class="text"></div>
+							</a>
+						</div>
+						<div class="block">
+							<a href="#"><img src="{% static 'img/controll2.jpg' %}" alt="">
+								<div class="text"></div>
+							</a>
+						</div>
+					</div>
+				</div>
+				{% for product in products %}
+				<div class="description">
+					<h3 class="big-bold">{{ product.title }}</h3>
+					<h3 class="red">горячее предложение</h3>
+					<p class="price"> {{ product.price }} <span>руб</span></p>
+					<a href="#" class="red-button">
+						заказать <i class="fa fa-chevron-right" aria-hidden="true"></i>
+					</a>
+					<div class="description-text">
+						{{ product.description }}
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+
+
+			<div class="related">
+				<div class="title clearfix">
+					<h2>Похожие продукты</h2>
+					<a class="explore" href="#">показать все <img src="{% static 'img/arrow.png' %}" alt=""></a>
+				</div>
+				<div class="related-products clearfix">
+					<div class="block">
+						<a href="#"><img src="{% static 'img/product-11.jpg' %}" alt="">
+							<div class="text">
+								<img src="{% static 'img/icon-hover.png' %}" alt="img">
+								<h4>Люстра</h4>
+								<p>Свет будущего</p>
+							</div>
+						</a>
+					</div>
+					<div class="block">
+						<a href="#"><img src="{% static 'img/product-21.jpg' %}" alt="">
+							<div class="text">
+								<img src="{% static 'img/icon-hover.png' %}" alt="img">
+								<h4>Кресло</h4>
+								<p>Комфорт и мода</p>
+							</div>
+						</a>
+					</div>
+					<div class="block">
+						<a href="#"><img src="{% static 'img/product-31.jpg' %}" alt="">
+							<div class="text">
+								<img src="{% static 'img/icon-hover.png' %}" alt="img">
+								<h4>Настольный светильник</h4>
+								<p>Освещает все</p>
+							</div>
+						</a>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+		<div class="clr"></div>
+	{% endblock %}
+	</div>
+
+</body>
+</html>
