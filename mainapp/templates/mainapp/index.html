@@ -21,25 +21,19 @@
 			<a class="explore" href="#">показать все <img src="{% static 'img/arrow.png' %}" alt=""></a>
 			<div class="clearfix">
 			</div>
+
 			<div class="tab-content">
+				{% for item in products %}
 				<div class="block">
-					<a href="#"><img src="{% static 'img/product-1.jpg' %}" alt="">
+					 <img src="/media/{{ item.image }}" alt="" style = "object-fit: cover; width: 220px; height: 210px;">
 						<div class="text">
 							<img src="{% static 'img/icon-hover.png' %}" alt="img">
-							<h4>Отличный стул</h4>
-							<p>Расположитесь комфортно. </p>
+							<h4>{{ item.name|title }}</h4>
+							<p>{{ item.description }}</p>
 						</div> 
 					</a>
 				</div>
-				<div class="block">
-					<a href="#"><img src="{% static 'img/product-2.jpg' %}" alt="">
-						<div class="text">
-							<img src="{% static 'img/icon-hover.png' %}" alt="">
-							<h4>Стул повышенного качества</h4>
-							<p>Не оторваться. </p>
-						</div>
-					</a>
-				</div>	
+				{% endfor %}
 			</div>
 		</div>
 
