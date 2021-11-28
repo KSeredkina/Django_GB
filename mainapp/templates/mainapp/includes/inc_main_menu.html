@@ -1,0 +1,17 @@
+{% load static %}
+<div class="header clearfix">
+				<a href="{% url 'main:index' %}" class="logo"></a>
+				<ul class="menu">
+					<li> <a href= "{% url 'main:index' %}" class="{% if request.resolver_match.url_name == 'index' %}
+                        active
+                      {% endif %}">домой</a></li>
+					<li><a href="{% url 'main:products' %}" class="{% if request.resolver_match.url_name == 'index' %}
+                        active
+                      {% endif %}">продукты</a></li>
+					<li><a href="{% url 'main:contact' %}" class="{% if request.resolver_match.url_name == 'index' %}
+                        active
+                      {% endif %}">контакты</a></li>
+				</ul>
+				<a href="#" class="search"></a>
+</div>
+

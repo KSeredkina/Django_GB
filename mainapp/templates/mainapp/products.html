@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'mainapp/base.html' %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>
+		{% block title %}
+			Каталог
+		{% endblock %}
+	</title>
+	{% load static %}
+</head>
+<body>
+	<div class="container">
+		{% block menu %}
+		<div class="hero-white">
+			{% include 'mainapp/includes/inc_main_menu.html' %}
+		</div>
+		{% endblock %}
+		{% block content %}
+		<div class="details">
+			<div class="links clearfix">
+				{% include 'mainapp/includes/inc_category_menu.html' %}
+			</div>
+				<ul class="products clearfix">
+					{% for product in products %}
+					<li class="product-wrapper">
+						<a href="" class="product"></a>
+							<div class="product-photo">
+								<img src="/media/{{ product.image }}" alt="">
+							</div>
+					</li>
+					{% endfor %}
+				</ul>
+		</div>
+
+		<div class="clr"></div>
+	{% endblock %}
+	</div>
+
+</body>
+</html>
